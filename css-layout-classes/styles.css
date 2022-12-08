@@ -4,7 +4,6 @@
 }
 
 .container {
-  height: 100%;
   max-width: 800px;
   margin: auto;
 }
@@ -21,17 +20,14 @@ img {
 
 .column-quarter {
   width: 25%;
-  height: 100%;
 }
 
 .column-third {
   width: calc(100%/3);
-  height: 100%;
 }
 
 .column-half {
   width: calc(100%/2);
-  height: 100%;
 }
 
 .column-two-thirds {
