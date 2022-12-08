@@ -3,50 +3,38 @@
   font-family: sans-serif;
 }
 
-.main-header {
-  font-weight: 700;
-}
-
-.description-header {
-  font-weight: 900;
-}
-
 .container {
   height: 100%;
   width: 50%;
   margin: auto;
 }
 
-.subcontainer {
+.row {
   height: calc(100%/6);
   width: 60vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: flex-start;
 }
 
-.small-text-container {
+img {
+  width: 100%;
+}
+
+.column-quarter {
+  width: 25%;
+  height: 100%;
+}
+
+.column-third {
   width: calc(100%/3);
+  height: 100%;
 }
 
-.big-text-container {
-  width: calc(100%/1.55);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
+.column-half {
+  width: calc(100%/2);
+  height: 100%;
 }
 
-.subcontainer-big-image {
-  width: calc(100%/3);
-}
-
-.subcontainer-small-image {
-  width: calc(100%/4);
-}
-
-.description {
-  font-size: 12px;
-  font-weight: normal;
+.column-two-thirds {
+  width: calc((100%/3) *2);
 }
