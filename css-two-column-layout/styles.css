@@ -21,8 +21,12 @@
   margin: 0 auto;
 }
 
+.col-70 {
+  width: 70%;
+}
+
 .col-80 {
-  width: 60%;
+  width: 80%;
 }
 
 .col-90 {
@@ -40,6 +44,7 @@ button {
   width: 125px;
   height: 30px;
   font-weight: bold;
+  margin-top: 25px;
 }
 
 .ta-center {
