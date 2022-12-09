@@ -13,12 +13,23 @@
 }
 
 .col-20 {
+  width: 20%;
+}
+
+.col-25 {
+  width: 25%;
+}
+
+.col-40 {
   width: 40%;
 }
 
 .col-50 {
   width: 50%;
-  margin: 0 auto;
+}
+
+.col-60 {
+  width: 60%;
 }
 
 .col-70 {
@@ -59,8 +70,16 @@ button {
   align-items: center;
 }
 
+.ac-center {
+  align-content: center;
+}
+
 .lh {
   line-height: 25px;
+}
+
+.margin {
+  margin: 0 auto;
 }
 
 .inline {
@@ -77,4 +96,9 @@ button {
 
 img {
   width: 100%;
+}
+
+.pos-rel-down {
+  position: relative;
+  top: 15px;
 }
