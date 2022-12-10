@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="row row-padding ai-center jc-space-between text-gray fs-12">
+    <div class="row row-padding ai-center p50 jc-space-between text-gray fs-12">
       <div>
         <img src="./images/logo-blue.svg" class="logo">
       </div>
@@ -21,45 +21,64 @@
           <div class="col-fba">Implementation</div>
           <div class="col-fba">About Us</div>
           <div class="col-fba">Blog</div>
-          <div class="col-fba"><button>Contact Us</button></div>
+          <div class="col-fba"><button class="small-button">Contact Us</button></div>
         </div>
       </div>
     </div>
-    <div class="row jc-center bottom-border-gray">
-      <img src="./images/hero.jpg" class="margin-tb-30">
+    <div class="row jc-center p50 top-border-gray">
+      <div class="col-90 rel">
+        <div class="overlay"></div>
+        <img src="./images/hero.jpg" class="poster">
+      </div>
+      <div class="abs col-40 color-white">
+        <h1>The EMR Reimagined for Primary care</h1>
+        <p class="fs-12 lh-double">Can't remember the last time you talked with a patient without focusing on the EMR? Canvas lets you rediscover joy in the work you do. Capture meaningful data, identify gaps in care, and move seemlessly between tasks within the platform. You stay present with patients while your whole care team stays up-to-speed. Be a better doctor with Canvas, designed for primary care providers with the help of primary care providers. </p>
+        <div><button class="button">Get Started</button></div>
+      </div>
     </div>
     <div class="row jc-center bg-off-white row-padding">
-      <div class="ta-center col-50 jc-center">
-        <h2 class="text-gray">Clinicians Prefer Canvas</h2>
+      <div class="ta-center col-50 p-bottom-desc">
+        <h2 class="text-gray alt-font">Clinicians Prefer Canvas</h2>
         <p class="text-gray fs-14">Physician-owned primary care practices across the country have already made Canvas the fabric of their care. </p>
       </div>
     </div>
-    <div class="row row-padding">
-      <p>Locations</p>
+    <div class="row location-padding bg-off-white jc-space-around text-d-gray fs-16 locations-padding">
+      <div class="col-40 ta-center">
+        <p class="city-padding">Cascade Family Practicem Portland OR</p>
+        <p class="city-padding">Temescal Creek Medicinem Oakland CA</p>
+        <p class="city-padding">San Juan Healthcare, Friday Harbor WA</p>
+      </div>
+      <div class="col-40 jc-space-evenly">
+        <p class="city-padding">Ward Medical Clinic, Bonifay FL</p>
+        <p class="city-padding">Caribou Medical, Towanda PA</p>
+        <p class="city-padding">Bay Tree Family Care, Red Bay AL</p>
+      </div>
     </div>
-    <div class="row ai-center jc-space-between row-padding">
+    <div class="row ai-center jc-space-between row-padding top-border-gray">
       <div class="col-30">
-        <h2 class="text-gray rel-pos-down">Ready to learn more?</h2>
+        <h2 class="text-gray rel-pos-down alt-font">Ready to learn more?</h2>
         <p class="text-gray">Schedule a private meeting now</p>
       </div>
       <div class="col-30 ta-right">
-        <button>Get Started</button>
+        <button class="button">Get Started</button>
       </div>
     </div>
-    <div class="row fs-12 color-white bg-gray row-padding jc-space-between">
+    <div class="row fs-14 color-white bg-gray jc-space-between footer-padding">
       <div>
         <img src="./images/logo-white.png" class="logo">
-        <p>2307 Irving Street, Suite 228</p>
-        <p>San Francisco CA 94122</p>
-        <p>(800) 370-1416</p>
-        <p>info@canvasmedical.com</p>
+        <div class="lh-single rel-footer-info">
+          <p>2307 Irving Street, Suite 228</p>
+          <p>San Francisco CA 94122</p>
+          <p>(800) 370-1416</p>
+          <p>info@canvasmedical.com</p>
+        </div>
       </div>
-      <div>
+      <div class="fs-16">
         <p>COMPANY</p>
         <p>About Us</p>
         <p>Blog</p>
       </div>
-      <div>
+      <div class="fs-16">
         <p>PRODUCT</p>
         <p>Product</p>
         <p>Implementation</p>
@@ -67,9 +86,9 @@
         <p>Security</p>
       </div>
     </div>
-    <div class="row fs-12 bg-off-white row-padding">
-      <p class="col-10 text-gray">Privacy &amp; Terms</p>
-      <p class="col-10 text-gray">Contact Us</p>
+    <div class="row fs-16 text-bold bg-off-white bottom-padding">
+      <p class="col-15 text-gray">Privacy &amp; Terms</p>
+      <p class="col-15 text-gray">Contact Us</p>
     </div>
   </div>
 </body>
