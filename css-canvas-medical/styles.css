@@ -282,8 +282,8 @@ semantic classes
 }
 
 .hero-content-inner {
-  left: 8vw;
-  top: 14vh;
+  left: 5vw;
+  top: 0;
 }
 
 .hero-content-inner h1 {
