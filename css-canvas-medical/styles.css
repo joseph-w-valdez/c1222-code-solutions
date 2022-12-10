@@ -1,25 +1,72 @@
+/*
+
+layout classes
+
+*/
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   font-family: Avenir, "Tiempos Headline", sans-serif;
 }
 
-.alt-font {
-  font-family: "Tiempos Headline", sans-serif;
-  font-weight: 590;
-}
-
 .row {
   display: flex;
+}
+
+.fd-column {
+  flex-direction: column;
 }
 
 .wrap {
   flex-direction: wrap;
 }
 
+.jc-center {
+  justify-content: center;
+}
+
+.jc-space-evenly {
+  justify-content: space-evenly;
+}
+
+.jc-space-between {
+  justify-content: space-between;
+}
+
+.jc-space-around {
+  justify-content: space-around;
+}
+
+.jc-flex-start {
+  justify-content: flex-start;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.ta-left {
+  text-align: left;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-right {
+  text-align: right;
+}
+
 .test {
   background-color: red;
 }
+
+/*
+
+column classes
+
+*/
 
 .col-fba {
   flex-basis: auto;
@@ -69,12 +116,27 @@
   width: 100%;
 }
 
-img {
-  width: 100%;
+/*
+
+text modification classes
+
+*/
+
+.text-gray {
+  color: rgb(110 110 110);
 }
 
-.inline {
-  display: inline;
+.text-d-gray {
+  color: #717171;
+}
+
+.alt-font {
+  font-family: "Tiempos Headline", sans-serif;
+  font-weight: 590;
+}
+
+.text-bold {
+  font-weight: 600;
 }
 
 .fs-12 {
@@ -89,40 +151,14 @@ img {
   font-size: 16px;
 }
 
-.jc-center {
-  justify-content: center;
-}
+/*
 
-.jc-space-evenly {
-  justify-content: space-evenly;
-}
+utility classes
 
-.jc-space-between {
-  justify-content: space-between;
-}
+*/
 
-.jc-space-around {
-  justify-content: space-around;
-}
-
-.jc-flex-start {
-  justify-content: flex-start;
-}
-
-.ai-center {
-  align-items: center;
-}
-
-.ta-left {
-  text-align: left;
-}
-
-.ta-center {
-  text-align: center;
-}
-
-.ta-right {
-  text-align: right;
+.inline {
+  display: inline;
 }
 
 .margin {
@@ -139,42 +175,6 @@ img {
 
 .rel {
   position: relative;
-}
-
-.button {
-  background-color: rgb(41 68 100);
-  color: white;
-  width: 150px;
-  height: 40px;
-  font-size: 16px;
-  border: none;
-  border-radius: 3px;
-}
-
-.small-button {
-  background-color: rgb(41 68 100);
-  color: white;
-  border: none;
-  border-radius: 3px;
-  width: 80px;
-  height: 35px;
-  font-size: 12px;
-}
-
-.logo {
-  width: 50%;
-}
-
-.text-gray {
-  color: rgb(110 110 110);
-}
-
-.text-d-gray {
-  color: #717171;
-}
-
-.text-bold {
-  font-weight: 600;
 }
 
 .bg-off-white {
@@ -200,12 +200,6 @@ img {
 
 .top-border-gray {
   border-top: 1px solid #e7e9ec;
-}
-
-.overlay {
-  background: rgb(105 105 105 / 40%);
-  position: absolute;
-  inset: 0;
 }
 
 .footer-padding {
@@ -241,22 +235,80 @@ img {
   padding: 15px 50px;
 }
 
+/*
+
+semantic classes
+
+*/
+
+.overlay {
+  background: rgb(105 105 105 / 40%);
+  position: absolute;
+  inset: 0;
+}
+
+.button {
+  background-color: rgb(41 68 100);
+  color: white;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+}
+
+.small-button {
+  background-color: rgb(41 68 100);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 80px;
+  height: 35px;
+  font-size: 12px;
+}
+
+.logo {
+  width: 50%;
+}
+
 .hero {
   height: 430px;
   min-width: 100%;
   display: block;
 }
 
+.hero-padding {
+  padding: 50px;
+}
+
 .hero-content-inner {
-  left: 5vw;
+  left: 8vw;
   top: 14vh;
 }
+
+.hero-content-inner h1 {
+  font-size: 28px;
+}
+
+img {
+  width: 100%;
+}
+
+/*
+
+media queries
+
+*/
 
 @media (max-width: 1024px) {
   /* .hero-content-inner {
     width: 100%;
   }
  */
+
+  .hero-content-inner {
+    left: 10vw;
+  }
 
   .hero-content-inner h1 {
     font-size: 28px;
@@ -277,7 +329,13 @@ img {
   /* .hero-content-inner {
     width: 100%;
   }
+
  */
+
+  .hero-content-inner {
+    left: 15vw;
+  }
+
   .hero-content-inner h1 {
     font-size: 20px;
   }
@@ -298,8 +356,14 @@ img {
     width: 100%;
   }
  */
+
+  .hero-content-inner {
+    left: 15vw;
+  }
+
   .hero-content-inner h1 {
     font-size: 16px;
+    left: 10vw;
   }
 
   .hero-content-inner p {
@@ -319,8 +383,40 @@ img {
     width: 100%;
   }
  */
+
+  .hero-content-inner {
+    left: 20vw;
+  }
+
   .hero-content-inner h1 {
     font-size: 16px;
+  }
+
+  .hero-content-inner p {
+    font-size: 8px;
+    line-height: 20px;
+  }
+
+  .hero-content-inner button {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  /* .hero-content-inner {
+    width: 100%;
+  }
+ */
+
+  .hero-content-inner {
+    left: 25vw;
+  }
+
+  .hero-content-inner h1 {
+    font-size: 16px;
+    left: 20vw;
   }
 
   .hero-content-inner p {
