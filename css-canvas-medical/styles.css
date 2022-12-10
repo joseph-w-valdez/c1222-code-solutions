@@ -13,6 +13,10 @@
   display: flex;
 }
 
+.wrap {
+  flex-direction: wrap;
+}
+
 .test {
   background-color: red;
 }
