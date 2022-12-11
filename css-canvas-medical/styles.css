@@ -92,6 +92,10 @@ column classes
   width: 40%;
 }
 
+.col-45 {
+  width: 45%;
+}
+
 .col-50 {
   width: 50%;
 }
@@ -282,8 +286,8 @@ semantic classes
 }
 
 .hero-content-inner {
-  left: 5vw;
-  top: 0;
+  left: 7vw;
+  top: 10vh;
 }
 
 .hero-content-inner h1 {
