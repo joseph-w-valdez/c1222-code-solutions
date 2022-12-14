@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Barlow, sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .container {
@@ -86,6 +86,10 @@ column classes
   justify-content: center;
 }
 
+.jc-space-evenly {
+  justify-content: space-evenly;
+}
+
 .ac-center {
   align-content: center;
 }
@@ -94,14 +98,83 @@ column classes
   align-items: center;
 }
 
-.font-size-12px {
+.fs-6 {
+  font-size: 6px;
+}
+
+.fs-8 {
+  font-size: 8px;
+}
+
+.fs-9 {
+  font-size: 9px;
+}
+
+.fs-10 {
+  font-size: 10px;
+}
+
+.fs-12 {
   font-size: 12px;
 }
 
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-28 {
+  font-size: 28px;
+}
+
 img {
-  width: 100%;
+  height: 225px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .icon {
   width: 25%;
+}
+
+.inline {
+  display: inline;
+}
+
+.lh-double {
+  line-height: 20px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.color-gray {
+  color: #d6d6d6;
+}
+
+.of-contain {
+  object-fit: fill;
+}
+
+.bg-gray {
+  background-color: #fff2e7;
+  padding: 1px;
+  border: none;
+  border-radius: 10%;
 }
