@@ -64,7 +64,7 @@ console.log('doubleAll([3,9,11]) value: ', doubleAll([3, 9, 11]));
 console.log('doubleAll([0,2,1]) value: ', doubleAll([0, 2, 1]));
 
 const obj = {
-  isbn: 134 - 12312,
+  isbn: ' 134 - 12312',
   title: 'Fight Club',
   author: 'Tyler Durden'
 };
