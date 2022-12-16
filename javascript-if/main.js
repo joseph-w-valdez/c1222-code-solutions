@@ -19,20 +19,8 @@ function startsWithJ(string) {
   return string.split('')[0] === 'J';
 }
 
-var people = {
-  bart: {
-    name: 'Bart Simpson',
-    age: 10
-  },
-
-  biden: {
-    name: 'Joe Biden',
-    age: 98472347892374
-  }
-};
-
 function isOldEnoughToDrink(person) {
-  return people[person].age >= 21;
+  return person.age >= 21;
 }
 
 function isOldEnoughToDrive(person) {
