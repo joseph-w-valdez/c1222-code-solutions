@@ -11,7 +11,7 @@ extract the first value of the array and return it
 
 plan
 --------------
-set a variable equal to array[0] and return it
+ array[0] and return it
 
 */
 
