@@ -1,5 +1,4 @@
 /* exported getFirstInitialOfPerson */
 function getFirstInitialOfPerson(person) {
-  return person.firstName.split('')[0];
-
+  return person.firstName[0];
 }

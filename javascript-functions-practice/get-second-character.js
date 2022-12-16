@@ -1,4 +1,4 @@
 /* exported getSecondCharacter */
 function getSecondCharacter(string) {
-  return string.split('')[1];
+  return string[1];
 }
