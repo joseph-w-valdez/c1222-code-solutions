@@ -3,7 +3,7 @@
 }
 
 #verou {
-  color: black;
+  color: black !important;
 }
 
 .bio {
