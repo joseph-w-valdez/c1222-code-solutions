@@ -16,7 +16,7 @@ function isEven(number) {
 }
 
 function startsWithJ(string) {
-  return string.split('')[0] === 'J';
+  return string[0] === 'J';
 }
 
 function isOldEnoughToDrink(person) {
