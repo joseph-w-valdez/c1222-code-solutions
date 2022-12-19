@@ -20,15 +20,20 @@ add each flipped word into a result array and join them together back into a str
 // go into each container[i] using a for loop
 //
 
-/* function reverseWords(string) {
-  var container = [];
-  var result = [];
-  var objectLiteral = {};
-  container.push(string.split(' '));
-  for (let i = 0; i < container.length; i++) {
-    for (let j = 0; j < container[i].length; j++) {
-      var temp = '';
-      temp[container[i]] = container[i][j];
+function reverseWords(string) {
+  var separatedWords = string.split(' ');
+  var reversedWords = [];
+  var reversedWord = '';
+  for (let i = 0; i < separatedWords.length; i++) {
+    for (let j = separatedWords[i].length - 1; j >= 0; j--) {
+      reversedWord += separatedWords[i][j];
     }
+    reversedWords.push(reversedWord);
+    reversedWord = '';
   }
-  return temp; */
+  var result = reversedWords.join(' ');
+  return result;
+}
+
+// console.log("reverseWords('All Code All Day') value :  ", reverseWords('All Code All Day'));
+// console.log("reverseWords('follow your passion') value :  ", reverseWords('follow your passion'));
