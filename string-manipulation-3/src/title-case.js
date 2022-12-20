@@ -29,29 +29,47 @@ return the result
 
 */
 
+var minorWords = ['and', 'or', 'but', 'nor', 'a', 'an', 'the', 'as', 'by', 'for', 'in', 'of', 'on', 'per', 'to'];
+
+function checkIfMinorWord(string) {
+  for (let j = 0; j < minorWords.length; j++) {
+    if (string === minorWords[j]) {
+      return true;
+    }
+  }
+}
+
 function titleCase(title) {
   var result = [];
   var lowercased = title.toLowerCase();
   var separatedWords = lowercased.split(' ');
   var singleWord = '';
   for (let i = 0; i < separatedWords.length; i++) {
-    if (separatedWords[i] === 'a') {
-      result.push(separatedWords[i]);
-    } else if (separatedWords[i] === 'javascript') {
+    if (separatedWords[i] === 'javascript') {
       result.push('JavaScript');
     } else if (separatedWords[i] === 'api') {
       result.push('API');
+    } else if (i === 0 && separatedWords[0] !== 'javascript') {
+      singleWord = separatedWords[i][0].toUpperCase() + separatedWords[i].substring(1);
+      result.push(singleWord);
+      singleWord = '';
+    } else if (separatedWords[i - 1][separatedWords[i - 1].length - 1] === ':') {
+      singleWord = separatedWords[i][0].toUpperCase() + separatedWords[i].substring(1);
+      result.push(singleWord);
+      singleWord = '';
+    } else if (checkIfMinorWord(separatedWords[i]) === true) {
+      result.push(separatedWords[i]);
     } else {
       singleWord = separatedWords[i][0].toUpperCase() + separatedWords[i].substring(1);
       result.push(singleWord);
       singleWord = '';
     }
   }
-  /* for (let i = 0; i < separatedWords.length; i++) {
 
-  } */
   result = result.join(' ');
   return result;
 }
-/* console.log("titleCase('composing the software') value :  ", titleCase('a composing: the software'));
-console.log("titleCase('professional JavaScript for web developers') value :  ", titleCase('professional JavaScript for web developers')); */
+/*
+console.log('titleCase(the self-taught programmer: the definitive guide to programming professionally) value :  ', titleCase('the self-taught programmer: the definitive guide to programming professionally'));
+console.log("titleCase('javascript: the definitive guide') value :  ", titleCase('javascript: the definitive javaSCRIPT guide'));
+ */
