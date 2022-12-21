@@ -35,5 +35,5 @@ function reverseWords(string) {
   return result;
 }
 
-// console.log("reverseWords('All Code All Day') value :  ", reverseWords('All Code All Day'));
-// console.log("reverseWords('follow your passion') value :  ", reverseWords('follow your passion'));
+/* console.log("reverseWords('All Code All Day') value :  ", reverseWords('All Code All Day'));
+console.log("reverseWords('follow your passion') value :  ", reverseWords('follow your passion')); */

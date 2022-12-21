@@ -43,5 +43,4 @@ console.log('isPalindromic("racecar")value :  ', isPalindromic('racecar'));
 isPalindromic('taco cat');
 console.log('isPalindromic("taco cat")value :  ', isPalindromic('taco cat'));
 isPalindromic('sam i am');
-console.log('isPalindromic("sam i am")value :  ', isPalindromic('sam i am'));
- */
+console.log('isPalindromic("sam i am")value :  ', isPalindromic('sam i am')); */
