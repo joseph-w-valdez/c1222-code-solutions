@@ -22,8 +22,18 @@ var exceptionList = ['Shift', 'CapsLock', 'Alt', 'Tab', 'Control', 'Meta', 'Cont
   'F11', 'F12', '`', 'Escape', 'Backspace', 'Enter', '-', '='];
 
 var $activePhrase = document.querySelector('.active-phrase');
+var $characterSpan = 0;
+var $activeCharacterIndex = 0;
 
-function addLetter(letterNumber) {
+conditional to check if value === &nbsp;
+
+else if ($phraseString[character] === ' ') {
+      $characterSpan.innerHTML = '&nbsp;';
+      $firstCol.appendChild($characterSpan);
+    }
+*/
+
+/* function addLetter(letterNumber) {
   var $newCharacter = document.createElement('span');
   return $newCharacter;
 }
@@ -31,21 +41,17 @@ function addLetter(letterNumber) {
 function displayPhrase(phraseNumber) {
   var $firstCol = document.querySelector('.col-100');
   var $phraseString = phrases[phraseNumber];
-  for (let character = 0; character < $phraseString.length; character++) {
-    var $characterSpan = addLetter($phraseString[character]);
-    if (character === 0) {
-      $characterSpan.setAttribute('class', 'active-letter');
-      $characterSpan.textContent = $phraseString[character];
-      $firstCol.appendChild($characterSpan);
-    } else if ($phraseString[character] === ' ') {
-      $characterSpan.innerHTML = '&nbsp;';
-      $firstCol.appendChild($characterSpan);
-    } else {
-      $characterSpan.textContent = $phraseString[character];
-      $firstCol.appendChild($characterSpan);
-    }
-  }
 
+  $characterSpan = addLetter(phrases[0]);
+  $characterSpan.setAttribute('class', 'active-letter');
+  $characterSpan.textContent = $phraseString[0];
+  $firstCol.appendChild($characterSpan);
+  for (let character = 1; character < $phraseString.length; character++) {
+    $characterSpan = addLetter($phraseString[character]);
+    $characterSpan.textContent = $phraseString[character];
+    $firstCol.appendChild($characterSpan);
+
+  }
 }
 
 displayPhrase(0);
@@ -53,7 +59,6 @@ displayPhrase(0);
 $allSpans = document.querySelectorAll('span');
 $activeSpan = document.querySelector('.active-letter');
 window.addEventListener('keydown', handleKeyPress);
-console.log($activeSpan);
 
 function checkIfException(character) {
   if (exceptionList.includes(character)) {
@@ -71,8 +76,5 @@ function handleKeyPress(event) {
       console.log('no');
       console.log(event.key);
     }
-  } else {
-
   }
-}
- */
+} */
