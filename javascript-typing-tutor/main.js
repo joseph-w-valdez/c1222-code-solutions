@@ -17,6 +17,10 @@ use an eventListener to check specifically for the item
   "Let's do tricks with chicks and clocks, sir. "
 ];
 
+var exceptionList = ['Shift', 'CapsLock', 'Alt', 'Tab', 'Control', 'Meta', 'ContextMenu', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft',
+  'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'ScrollLock', 'Pause', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10',
+  'F11', 'F12', '`', 'Escape', 'Backspace', 'Enter', '-', '='];
+
 var $activePhrase = document.querySelector('.active-phrase');
 
 function addLetter(letterNumber) {
@@ -60,5 +64,4 @@ function handleKeyPress(event) {
     console.log(event.key);
   }
 
-}
- */
+} */
