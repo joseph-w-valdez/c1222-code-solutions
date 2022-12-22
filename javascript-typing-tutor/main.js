@@ -55,13 +55,24 @@ $activeSpan = document.querySelector('.active-letter');
 window.addEventListener('keydown', handleKeyPress);
 console.log($activeSpan);
 
-function handleKeyPress(event) {
-  if (event.key === $activeSpan.textContent && event.key !== 'Shift') {
-    $activeSpan.classList.add('successful-press');
-    $activeSpan.classList.remove('active-letter');
-  } else {
-    console.log('no');
-    console.log(event.key);
+function checkIfException(character) {
+  if (exceptionList.includes(character)) {
+    return true;
   }
+  return false;
+}
 
-} */
+function handleKeyPress(event) {
+  if (!checkIfException($activeSpan.textContent)) {
+    if (event.key === $activeSpan.textContent) {
+      $activeSpan.classList.add('successful-press');
+      $activeSpan.classList.remove('active-letter');
+    } else {
+      console.log('no');
+      console.log(event.key);
+    }
+  } else {
+
+  }
+}
+ */
