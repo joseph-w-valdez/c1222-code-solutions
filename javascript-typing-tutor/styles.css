@@ -28,6 +28,10 @@
   height: 100vh;
 }
 
+.h-100p {
+  height: 100%;
+}
+
 .jc-center {
   justify-content: center;
 }
@@ -43,4 +47,8 @@ span {
 
 .active-letter {
   text-decoration: underline;
+}
+
+.successful-press {
+  color: rgb(17 230 17);
 }

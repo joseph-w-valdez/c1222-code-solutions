@@ -27,7 +27,6 @@ function addLetter(letterNumber) {
 function displayPhrase(phraseNumber) {
   var $firstCol = document.querySelector('.col-100');
   var $phraseString = phrases[phraseNumber];
-  console.log($phraseString.length);
   for (let character = 0; character < $phraseString.length; character++) {
     var $characterSpan = addLetter($phraseString[character]);
     if (character === 0) {
@@ -46,4 +45,20 @@ function displayPhrase(phraseNumber) {
 }
 
 displayPhrase(0);
+
+$allSpans = document.querySelectorAll('span');
+$activeSpan = document.querySelector('.active-letter');
+window.addEventListener('keydown', handleKeyPress);
+console.log($activeSpan);
+
+function handleKeyPress(event) {
+  if (event.key === $activeSpan.textContent && event.key !== 'Shift') {
+    $activeSpan.classList.add('successful-press');
+    $activeSpan.classList.remove('active-letter');
+  } else {
+    console.log('no');
+    console.log(event.key);
+  }
+
+}
  */
