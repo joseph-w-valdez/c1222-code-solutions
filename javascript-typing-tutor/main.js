@@ -19,44 +19,72 @@ var phrases = [
 var exceptionList = ['Shift', 'CapsLock', 'Alt', 'Tab', 'Control', 'Meta', 'ContextMenu', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft',
   'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'ScrollLock', 'Pause', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10',
   'F11', 'F12', '`', 'Escape', 'Backspace', 'Enter', '-', '='];
-/* var $activePhrase = document.querySelector('.active-phrase'); */
+
 function addLetter(letterNumber) {
   var $newCharacter = document.createElement('span');
   return $newCharacter;
 }
+var $phraseNumber = 0;
+var $phraseString = phrases[$phraseNumber];
+var $activeCharacterIndex = 0;
+var $firstRow = document.querySelector('.row');
+var $newCol;
+displayPhrase($phraseNumber);
+
 function displayPhrase(phraseNumber) {
-  var $firstCol = document.querySelector('.col-100');
-  var $phraseString = phrases[phraseNumber];
+  $phraseString = phrases[phraseNumber];
+  $newCol = document.createElement('div');
+  $newCol.setAttribute('class', 'col-100');
+  $firstRow.appendChild($newCol);
   var $characterSpan;
-  $characterSpan = addLetter(phrases[0]);
-  $characterSpan.setAttribute('class', 'active-letter');
-  $characterSpan.textContent = $phraseString[0];
-  $firstCol.appendChild($characterSpan);
-  for (let character = 1; character < $phraseString.length; character++) {
+  for (let character = 0; character < $phraseString.length; character++) {
     $characterSpan = addLetter($phraseString[character]);
     $characterSpan.textContent = $phraseString[character];
-    $firstCol.appendChild($characterSpan);
+    $newCol.appendChild($characterSpan);
   }
 }
-displayPhrase(0);
-/* var $allSpans = document.querySelectorAll('span'); */
-var $activeSpan = document.querySelector('.active-letter');
+
+var $allSpans = document.querySelectorAll('span');
 window.addEventListener('keydown', handleKeyPress);
-/* console.log($activeSpan); */
+
 function checkIfException(character) {
   if (exceptionList.includes(character)) {
     return true;
   }
   return false;
 }
+
+function nextCharacterIndex() {
+  if ($activeCharacterIndex === $phraseString.length - 1) {
+    $newCol.remove();
+    $phraseNumber++;
+    $activeCharacterIndex = 0;
+    displayPhrase($phraseNumber);
+    $allSpans = document.querySelectorAll('span');
+    $activeSpan = $allSpans[$activeCharacterIndex];
+    $activeSpan.classList.add('active-letter');
+  } else {
+    $activeCharacterIndex++;
+    $activeSpan = $allSpans[$activeCharacterIndex];
+    $activeSpan.classList.add('active-letter');
+  }
+}
+
+var $activeSpan = $allSpans[$activeCharacterIndex];
+$activeSpan.classList.add('active-letter');
+
 function handleKeyPress(event) {
-  if (!checkIfException($activeSpan.textContent)) {
+
+  if (!checkIfException(event.key)) {
     if (event.key === $activeSpan.textContent) {
       $activeSpan.classList.add('successful-press');
+      $activeSpan.classList.remove('failed-press');
       $activeSpan.classList.remove('active-letter');
+
+      nextCharacterIndex();
+
     } else {
-      /* console.log('no');
-      console.log(event.key); */
+      $activeSpan.classList.add('failed-press');
     }
   } else {
     return undefined;

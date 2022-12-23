@@ -52,3 +52,7 @@ span {
 .successful-press {
   color: rgb(17 230 17);
 }
+
+.failed-press {
+  color: rgb(230 17 17);
+}
