@@ -62,6 +62,8 @@ function checkIfException(character) {
   return false;
 }
 
+var $hiddenButton = document.querySelector('.hidden');
+
 function nextCharacterIndex() {
   if ($activeCharacterIndex === $phraseString.length - 1) {
     $newCol.remove();
@@ -73,6 +75,7 @@ function nextCharacterIndex() {
       $newCol.appendChild($congratulations);
       $firstRow.appendChild($newCol);
       finished = true;
+      $hiddenButton.classList.remove('hidden');
 
     } else {
       $phraseNumber++;
