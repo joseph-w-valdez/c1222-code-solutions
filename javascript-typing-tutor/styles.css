@@ -28,8 +28,16 @@
   height: 100vh;
 }
 
-.h-100p {
-  height: 100%;
+.h-50p {
+  height: 50%;
+}
+
+.m-50 {
+  margin: 30px 50px 10px;
+}
+
+.inline {
+  display: inline;
 }
 
 .jc-center {
@@ -38,6 +46,14 @@
 
 .ai-center {
   align-items: center;
+}
+
+.ai-flex-end {
+  align-items: flex-end;
+}
+
+.ai-flex-start {
+  align-items: flex-start;
 }
 
 span {
@@ -55,4 +71,9 @@ span {
 
 .failed-press {
   color: rgb(230 17 17);
+}
+
+p {
+  font-size: 35px;
+  font-weight: bold;
 }
