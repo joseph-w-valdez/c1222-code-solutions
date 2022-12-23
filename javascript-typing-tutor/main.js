@@ -12,9 +12,12 @@ use an eventListener to check specifically for the item
 */
 
 var phrases = [
-  'Look, sir. Look, sir. Mr. Knox, sir.',
+  /* 'Look, sir. Look, sir. Mr. Knox, sir.',
   "Let's do tricks with bricks and blocks, sir.",
-  "Let's do tricks with chicks and clocks, sir. "
+  "Let's do tricks with chicks and clocks, sir." */
+  'quick',
+  'xmas',
+  'pain'
 ];
 var exceptionList = ['Shift', 'CapsLock', 'Alt', 'Tab', 'Control', 'Meta', 'ContextMenu', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft',
   'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'ScrollLock', 'Pause', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10',
@@ -29,6 +32,10 @@ var $successes = 0;
 var $fails = 0;
 var $successRate;
 var $successRateRounding;
+var $successfulPresses = document.querySelector('.successes');
+$successfulPresses.textContent = '0';
+var $failedPresses = document.querySelector('.fails');
+$failedPresses.textContent = '0';
 var $accuracy = document.querySelector('.accuracy');
 $accuracy.textContent = '0';
 var $phraseNumber = 0;
@@ -67,6 +74,7 @@ var $hiddenButton = document.querySelector('.hidden');
 function nextCharacterIndex() {
   if ($activeCharacterIndex === $phraseString.length - 1) {
     $newCol.remove();
+
     if ($phraseNumber === phrases.length - 1) {
       $newCol = document.createElement('div');
       $newCol.setAttribute('class', 'col-100');
@@ -96,8 +104,6 @@ var $activeSpan = $allSpans[$activeCharacterIndex];
 $activeSpan.classList.add('active-letter');
 
 function handleKeyPress(event) {
-  var $successfulPresses = document.querySelector('.successes');
-  var $failedPresses = document.querySelector('.fails');
 
   if (!checkIfException(event.key) && !finished) {
     if (event.key === $activeSpan.textContent) {
@@ -121,4 +127,26 @@ function handleKeyPress(event) {
   } else {
     return undefined;
   }
+}
+
+var $playAgain = document.querySelector('form');
+$playAgain.addEventListener('submit', handlePlayAgain);
+
+function handlePlayAgain(event) {
+  event.preventDefault();
+  $newCol.remove();
+  $successfulPresses.textContent = '0';
+  $failedPresses.textContent = '0';
+  $successes = 0;
+  $fails = 0;
+  $accuracy.textContent = '0';
+  $phraseNumber = 0;
+  $phraseString = phrases[$phraseNumber];
+  $activeCharacterIndex = 0;
+  finished = null;
+  displayPhrase($phraseNumber);
+  $allSpans = document.querySelectorAll('span');
+  $activeSpan = $allSpans[$activeCharacterIndex];
+  $activeSpan.classList.add('active-letter');
+  $hiddenButton.classList.add('hidden');
 }
