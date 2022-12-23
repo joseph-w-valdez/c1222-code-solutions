@@ -11,14 +11,32 @@ use an eventListener to check specifically for the item
 
 */
 
-var phrases = [
-  /* 'Look, sir. Look, sir. Mr. Knox, sir.',
+/* var phrases = [
+  'Fox. Socks. Box. Knox.',
+  'Knox in box.',
+  'Fox in socks.',
+  'Knox on fox in socks in box.',
+  'Socks on Knox and Knox in box.',
+  'Fox in socks on box on Knox.',
+  'Look, sir. Look, sir. Mr. Knox, sir.',
   "Let's do tricks with bricks and blocks, sir.",
-  "Let's do tricks with chicks and clocks, sir." */
-  'quick',
-  'xmas',
-  'pain'
+  "Let's do tricks with chicks and clocks, sir."
+
+]; */
+
+var phrases = [
+  'Fox. Socks. Box. Knox.',
+  'Knox in box.',
+  'Fox in socks.',
+  'Knox on fox in socks in box.',
+  'Socks on Knox and Knox in box.',
+  'Fox in socks on box on Knox.',
+  'Look, sir. Look, sir. Mr. Knox, sir.',
+  "Let's do tricks with bricks and blocks, sir.",
+  "Let's do tricks with chicks and clocks, sir."
+
 ];
+
 var exceptionList = ['Shift', 'CapsLock', 'Alt', 'Tab', 'Control', 'Meta', 'ContextMenu', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft',
   'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'ScrollLock', 'Pause', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10',
   'F11', 'F12', '`', 'Escape', 'Backspace', 'Enter', '-', '='];
@@ -45,6 +63,27 @@ var $firstRow = document.querySelector('.row');
 var $newCol;
 var finished;
 displayPhrase($phraseNumber);
+
+function startGame() {
+  $newCol.remove();
+  $successfulPresses.textContent = '0';
+  $failedPresses.textContent = '0';
+  $successes = 0;
+  $fails = 0;
+  $accuracy.textContent = '0';
+  $phraseNumber = 0;
+  $phraseString = phrases[$phraseNumber];
+  $activeCharacterIndex = 0;
+  finished = null;
+  displayPhrase($phraseNumber);
+  $allSpans = document.querySelectorAll('span');
+  $activeSpan = $allSpans[$activeCharacterIndex];
+  $activeSpan.classList.add('active-letter');
+  $hiddenButton.classList.add('hidden');
+/*   let timer = null;
+  clearInterval(timer);
+  timer = setInterval(updateTimer, 1000); */
+}
 
 function displayPhrase(phraseNumber) {
   $phraseString = phrases[phraseNumber];
@@ -134,19 +173,16 @@ $playAgain.addEventListener('submit', handlePlayAgain);
 
 function handlePlayAgain(event) {
   event.preventDefault();
-  $newCol.remove();
-  $successfulPresses.textContent = '0';
-  $failedPresses.textContent = '0';
-  $successes = 0;
-  $fails = 0;
-  $accuracy.textContent = '0';
-  $phraseNumber = 0;
-  $phraseString = phrases[$phraseNumber];
-  $activeCharacterIndex = 0;
-  finished = null;
-  displayPhrase($phraseNumber);
-  $allSpans = document.querySelectorAll('span');
-  $activeSpan = $allSpans[$activeCharacterIndex];
-  $activeSpan.classList.add('active-letter');
-  $hiddenButton.classList.add('hidden');
+  startGame();
 }
+
+/* var $wpm = document.querySelector('.wpm');
+var $hiddenTimeLeft = 500;
+var $hiddenTimeElapsed = 0;
+
+function updateTimer() {
+  $hiddenTimeLeft--;
+  $hiddenTimeElapsed++;
+  console.log('$hiddenTimeLeft--value :  ', $hiddenTimeLeft--);
+  console.log('$hiddenTimeElapsed++value :  ', $hiddenTimeElapsed++);
+} */

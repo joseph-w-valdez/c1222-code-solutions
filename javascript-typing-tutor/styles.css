@@ -91,3 +91,7 @@ button {
 .hidden {
   display: none;
 }
+
+.preformatted {
+  white-space: pre;
+}
