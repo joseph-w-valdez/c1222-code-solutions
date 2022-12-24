@@ -101,6 +101,7 @@ function startGame() {
     players[dealCardsToPlayer].hand.push(deck.pop(deck));
   }
   $roundCount++;
+  console.log('round number :  ', $roundCount);
   $roundCounter.textContent = $roundCount;
   $headerText.textContent = 'And the winner is... ';
   $winnerText.textContent = 'Strong Bad!';

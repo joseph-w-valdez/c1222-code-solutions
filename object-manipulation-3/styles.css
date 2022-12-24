@@ -184,4 +184,14 @@ button {
   background-color: rgb(84 114 212);
   border-radius: 30px;
   border: 5px solid white;
+  box-shadow: 0 10px rgb(180 180 180);
+}
+
+button:hover {
+  background-color: rgb(68 93 173);
+}
+
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0 7px rgb(119 119 119);
 }
