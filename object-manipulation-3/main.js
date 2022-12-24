@@ -22,7 +22,7 @@ shuffleDeck(deck) works correctly but logging the deck gets weird results. hopef
 
 */
 
-var players = [
+var defaultPlayers = [
   {
     name: 'Max',
     hand: null
@@ -41,9 +41,12 @@ var players = [
   }
 ];
 
+var players = JSON.parse(JSON.stringify(defaultPlayers));
+
 var suit = ['Hearts', 'Clubs', 'Spades', 'Diamonds'];
 var rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
 var deck = [];
+var score = 0;
 
 function createDeck() {
   for (let rankIndex = 0; rankIndex < rank.length; rankIndex++) {
@@ -51,6 +54,13 @@ function createDeck() {
     for (let suitIndex = 0; suitIndex < suit.length; suitIndex++) {
       card.rank = rank[rankIndex];
       card.suit = suit[suitIndex];
+      if (rank[rankIndex] === 'Ace') {
+        card.value = 11;
+      } else if (rank[rankIndex] === 'Jack' || rank[rankIndex] === 'Queen' || rank[rankIndex] === 'King') {
+        card.value = 10;
+      } else {
+        card.value = rank[rankIndex] * 1;
+      }
       deck.push(card);
       card = {};
     }
@@ -78,7 +88,7 @@ var $winnerText = document.querySelector('.winner-text');
 var $buttonText = document.querySelector('button');
 var $roundCounter = document.querySelector('.round-counter');
 
-var $roundCount = 1;
+var $roundCount = 0;
 
 function handleButton(event) {
   event.preventDefault();
@@ -89,18 +99,55 @@ $playButton.addEventListener('submit', handleButton);
 
 function startGame() {
   deck = [];
+  players = JSON.parse(JSON.stringify(defaultPlayers));
   createDeck();
-  console.log('playersvalue :  ', players);
-  console.log('deckvalue :  ', deck);
+  dealCards();
+  eliminateOver21();
+  /* hitStayOrFold(); */
+  $roundCount++;
+  endGame();
+}
+
+function dealCards() {
   for (let dealCardsToPlayer = 0; dealCardsToPlayer < players.length; dealCardsToPlayer++) {
     players[dealCardsToPlayer].hand = [];
-    players[dealCardsToPlayer].hand.push(deck.pop(deck));
+    players[dealCardsToPlayer].hand.push(deck.pop());
     console.log('deckvalue :  ', deck);
+    score = players[dealCardsToPlayer].hand[players[dealCardsToPlayer].hand.length - 1].value;
+    players[dealCardsToPlayer].value = score;
+    score = 0;
   }
   for (let dealCardsToPlayer = 0; dealCardsToPlayer < players.length; dealCardsToPlayer++) {
-    players[dealCardsToPlayer].hand.push(deck.pop(deck));
+    players[dealCardsToPlayer].hand.push(deck.pop());
+    score = players[dealCardsToPlayer].hand[players[dealCardsToPlayer].hand.length - 1].value;
+    players[dealCardsToPlayer].value += score;
+    score = 0;
   }
-  $roundCount++;
+}
+
+function eliminateOver21() {
+  var survivingPlayers = [];
+
+  for (let player = 0; player < players.length; player++) {
+    console.log(players[player].value, players[player]);
+    if (players[player].value < 21) {
+      survivingPlayers.push(players[player]);
+    }
+  }
+  players = JSON.parse(JSON.stringify(survivingPlayers));
+  return survivingPlayers;
+}
+
+/* function hitStayOrFold() {
+  for (let player = 0; player < players.length; player++) {
+    if (players[player].value < 11) {
+      players[player].hand.push(deck.pop());
+      score = players[player].hand[players[player].hand.length - 1].value;
+    }
+  }
+} */
+
+function endGame() {
   console.log('round number :  ', $roundCount);
   $roundCounter.textContent = $roundCount;
   $headerText.textContent = 'And the winner is... ';
