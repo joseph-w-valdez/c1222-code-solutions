@@ -104,6 +104,7 @@ function startGame() {
   dealCards();
   eliminateOver21();
   /* hitStayOrFold(); */
+  checkWinner();
   $roundCount++;
   endGame();
 }
@@ -130,12 +131,24 @@ function eliminateOver21() {
 
   for (let player = 0; player < players.length; player++) {
     console.log(players[player].value, players[player]);
-    if (players[player].value < 21) {
+    if (players[player].value <= 21) {
       survivingPlayers.push(players[player]);
     }
   }
   players = JSON.parse(JSON.stringify(survivingPlayers));
   return survivingPlayers;
+}
+
+function checkWinner() {
+  var winner = players[0];
+  console.log('winnervalue :  ', winner);
+  for (let player = 0; player < players.length; player++) {
+    if (players[player].value > winner.value) {
+      winner = players[player];
+      console.log('winnervalue :  ', winner);
+    }
+  }
+  players = JSON.parse(JSON.stringify(winner));
 }
 
 /* function hitStayOrFold() {
