@@ -47,6 +47,7 @@ var suit = ['Hearts', 'Clubs', 'Spades', 'Diamonds'];
 var rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
 var deck = [];
 var score = 0;
+var winningPlayer = null;
 
 function createDeck() {
   for (let rankIndex = 0; rankIndex < rank.length; rankIndex++) {
@@ -87,6 +88,7 @@ var $headerText = document.querySelector('.header');
 var $winnerText = document.querySelector('.winner-text');
 var $buttonText = document.querySelector('button');
 var $roundCounter = document.querySelector('.round-counter');
+var $winnerImg = document.querySelector('img');
 
 var $roundCount = 0;
 
@@ -99,6 +101,7 @@ $playButton.addEventListener('submit', handleButton);
 
 function startGame() {
   deck = [];
+  winningPlayer = null;
   players = JSON.parse(JSON.stringify(defaultPlayers));
   createDeck();
   dealCards();
@@ -148,6 +151,7 @@ function checkWinner() {
       console.log('winnervalue :  ', winner);
     }
   }
+  winningPlayer = winner.name;
   players = JSON.parse(JSON.stringify(winner));
 }
 
@@ -164,7 +168,17 @@ function endGame() {
   console.log('round number :  ', $roundCount);
   $roundCounter.textContent = $roundCount;
   $headerText.textContent = 'And the winner is... ';
-  $winnerText.textContent = 'Strong Bad!';
+  $winnerText.textContent = winningPlayer + '!';
   $buttonText.textContent = 'Play Again?';
+  if (winningPlayer === 'The Heavy') {
+    $winnerImg.setAttribute('src', './images/TheHeavy.png');
+  } else if (winningPlayer === 'Max') {
+    $winnerImg.setAttribute('src', './images/Max.png');
+  } else if (winningPlayer === 'Strong Bad') {
+    $winnerImg.setAttribute('src', './images/StrongBad.png');
+  } else {
+    $winnerImg.setAttribute('src', './images/Tycho.png');
+  }
+
   console.log('playersvalue :  ', players);
 }
