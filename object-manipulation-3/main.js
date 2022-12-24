@@ -73,6 +73,13 @@ function shuffleDeck(deck) {
 createDeck();
 
 var $playButton = document.querySelector('form');
+var $headerText = document.querySelector('.header');
+var $winnerText = document.querySelector('.winner-text');
+var $buttonText = document.querySelector('button');
+var $roundCounter = document.querySelector('.round-counter');
+
+var $roundCount = 1;
+
 function handleButton(event) {
   event.preventDefault();
   startGame();
@@ -93,6 +100,10 @@ function startGame() {
   for (let dealCardsToPlayer = 0; dealCardsToPlayer < players.length; dealCardsToPlayer++) {
     players[dealCardsToPlayer].hand.push(deck.pop(deck));
   }
-
+  $roundCount++;
+  $roundCounter.textContent = $roundCount;
+  $headerText.textContent = 'And the winner is... ';
+  $winnerText.textContent = 'Strong Bad!';
+  $buttonText.textContent = 'Play Again?';
   console.log('playersvalue :  ', players);
 }
