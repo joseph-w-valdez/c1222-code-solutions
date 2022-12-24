@@ -71,15 +71,28 @@ function shuffleDeck(deck) {
 }
 
 createDeck();
-console.log('playersvalue :  ', players);
-console.log('deckvalue :  ', deck);
 
 var $playButton = document.querySelector('form');
 function handleButton(event) {
   event.preventDefault();
+  startGame();
+
+}
+$playButton.addEventListener('submit', handleButton);
+
+function startGame() {
   deck = [];
   createDeck();
   console.log('playersvalue :  ', players);
   console.log('deckvalue :  ', deck);
+  for (let dealCardsToPlayer = 0; dealCardsToPlayer < players.length; dealCardsToPlayer++) {
+    players[dealCardsToPlayer].hand = [];
+    players[dealCardsToPlayer].hand.push(deck.pop(deck));
+    console.log('deckvalue :  ', deck);
+  }
+  for (let dealCardsToPlayer = 0; dealCardsToPlayer < players.length; dealCardsToPlayer++) {
+    players[dealCardsToPlayer].hand.push(deck.pop(deck));
+  }
+
+  console.log('playersvalue :  ', players);
 }
-$playButton.addEventListener('submit', handleButton);
