@@ -117,7 +117,6 @@ function startGame() {
 function playGame() {
   dealCards();
   eliminateOver21();
-  /* hitStayOrFold(); */
   checkWinner();
 }
 
@@ -187,15 +186,6 @@ function checkWinner() {
     players = JSON.parse(JSON.stringify(winner));
   }
 }
-
-/* function hitStayOrFold() {
-  for (let player = 0; player < players.length; player++) {
-    if (players[player].value < 11) {
-      players[player].hand.push(deck.pop());
-      score = players[player].hand[players[player].hand.length - 1].value;
-    }
-  }
-} */
 
 function endGame() {
   console.log('round number :  ', $roundCount);
