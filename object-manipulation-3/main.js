@@ -94,22 +94,31 @@ var $roundCount = 0;
 
 function handleButton(event) {
   event.preventDefault();
+  console.log('THIS IS THE START OF A BRAND NEW GAME. USE THIS TO DETERMINE THE SEPARATION OF THE PREVIOUS GAME AND THIS NEW ONE.');
   startGame();
 
 }
 $playButton.addEventListener('submit', handleButton);
 
-function startGame() {
+function newGame() {
   deck = [];
   winningPlayer = null;
   players = JSON.parse(JSON.stringify(defaultPlayers));
   createDeck();
+}
+
+function startGame() {
+  newGame();
+  playGame();
+  $roundCount++;
+  endGame();
+}
+
+function playGame() {
   dealCards();
   eliminateOver21();
   /* hitStayOrFold(); */
   checkWinner();
-  $roundCount++;
-  endGame();
 }
 
 function dealCards() {
@@ -142,17 +151,41 @@ function eliminateOver21() {
   return survivingPlayers;
 }
 
+var nullPlayer = {
+  value: 0
+};
+
+var tiedPlayers = [];
+
 function checkWinner() {
-  var winner = players[0];
+  var winner = nullPlayer;
+
   console.log('winnervalue :  ', winner);
   for (let player = 0; player < players.length; player++) {
-    if (players[player].value > winner.value) {
+    if (tiedPlayers.length < 1 && players[player].value > winner.value) {
       winner = players[player];
-      console.log('winnervalue :  ', winner);
+    } else if (tiedPlayers.length < 1 && players[player].value === winner.value) {
+      tiedPlayers.push(winner);
+      tiedPlayers.push(players[player]);
+      console.log('THERE WAS A TIE CHECK THIS SECTION FOR DEBUGGING');
+      winner = nullPlayer;
+    } else if (tiedPlayers.length > 1 && players[player].value > tiedPlayers[0].value) {
+      tiedPlayers = [];
+      winner = players[player];
+    } else if (tiedPlayers.length > 1 && players[player].value === tiedPlayers[0].value) {
+      tiedPlayers.push(players[player]);
     }
   }
-  winningPlayer = winner.name;
-  players = JSON.parse(JSON.stringify(winner));
+  if (tiedPlayers.length > 1) {
+    players = JSON.parse(JSON.stringify(tiedPlayers));
+    tiedPlayers = [];
+    winner = nullPlayer;
+    console.log('playersvalue before running tiebreaker:  ', players);
+    playGame();
+  } else {
+    winningPlayer = winner.name;
+    players = JSON.parse(JSON.stringify(winner));
+  }
 }
 
 /* function hitStayOrFold() {
