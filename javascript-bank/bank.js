@@ -1,7 +1,12 @@
 /* exported Bank */
-/* function Bank() {
+function Bank() {
   this.nextAccountNumber = 1;
   this.accounts = [];
+}
+
+function Transaction(type, amount) {
+  this.type = type;
+  this.amount = amount;
 }
 
 Bank.prototype.openAccount = function (holder, balance) {
@@ -25,20 +30,9 @@ Bank.prototype.getAccount = function (number) {
 };
 
 Bank.prototype.getTotalAssets = function () {
-  let total = 0;
-  if (this.accounts > 0) {
-    for (let accountIndex = 0; accountIndex < this.accounts.length; accountIndex++) {
-      for (let transactionIndex = 0; transactionIndex < this.accounts[accountIndex].transactions.length; transactionIndex++) {
-        if (this.accounts[accountIndex].transactions[transactionIndex].type === 'deposit') {
-          total += this.accounts[accountIndex].transactions[transactionIndex].amount;
-        } else total -= this.accounts[accountIndex].transactions[transactionIndex].amount;
-      }
-    }
-  } return 0;
+  var total = 0;
+  for (let accountIndex = 0; accountIndex < this.accounts.length; accountIndex++) {
+    total += this.accounts[accountIndex].getBalance();
+  }
+  return total;
 };
-
-for (let transactionIndex = 0; transactionIndex < this.transactions.length; transactionIndex++) {
-  if (this.transactions[transactionIndex].type === 'deposit') {
-    total += this.transactions[transactionIndex].amount;
-  } else total -= this.transactions[transactionIndex].amount;
-} */

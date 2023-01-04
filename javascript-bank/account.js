@@ -33,7 +33,6 @@ Account.prototype.getBalance = function () {
   if (this.transactions.length === 0) {
     return 0;
   } else {
-
     for (let transactionIndex = 0; transactionIndex < this.transactions.length; transactionIndex++) {
       if (this.transactions[transactionIndex].type === 'deposit') {
         total += this.transactions[transactionIndex].amount;
