@@ -5,54 +5,30 @@ var $firstImage = document.querySelector('.first');
 $rightArrowButton.addEventListener('click', handleRightArrowButton);
 function handleRightArrowButton(event) {
   if ($firstImage.classList.contains('carousel-first')) {
-    $firstImage.classList.remove('carousel-first');
-    $firstImage.classList.remove('carousel-fifth');
-    $firstImage.classList.add('carousel-second');
-    $firstRadioButton.classList.remove('active-button-index');
-    $secondRadioButton.classList.add('active-button-index');
-
+    handleSecondRadioButton();
   } else if ($firstImage.classList.contains('carousel-second')) {
-    $firstImage.classList.remove('carousel-second');
-    $firstImage.classList.remove('carousel-fifth');
-    $firstImage.classList.add('carousel-third');
-    $secondRadioButton.classList.remove('active-button-index');
-    $thirdRadioButton.classList.add('active-button-index');
+    handleThirdRadioButton();
   } else if ($firstImage.classList.contains('carousel-third')) {
-    $firstImage.classList.remove('carousel-third');
-    $firstImage.classList.remove('carousel-fifth');
-    $firstImage.classList.add('carousel-fourth');
-    $thirdRadioButton.classList.remove('active-button-index');
-    $fourthRadioButton.classList.add('active-button-index');
+    handleFourthRadioButton();
   } else if ($firstImage.classList.contains('carousel-fourth')) {
-    $firstImage.classList.remove('carousel-fourth');
-    $firstImage.classList.add('carousel-fifth');
-    $fourthRadioButton.classList.remove('active-button-index');
-    $fifthRadioButton.classList.add('active-button-index');
+    handleFifthRadioButton();
+  } else {
+    handleFirstRadioButton();
   }
 }
 
 $leftArrowButton.addEventListener('click', handleLeftArrowButton);
 function handleLeftArrowButton(event) {
   if ($firstImage.classList.contains('carousel-fifth')) {
-    $firstImage.classList.remove('carousel-fifth');
-    $firstImage.classList.add('carousel-fourth');
-    $fifthRadioButton.classList.remove('active-button-index');
-    $fourthRadioButton.classList.add('active-button-index');
+    handleFourthRadioButton();
   } else if ($firstImage.classList.contains('carousel-fourth')) {
-    $firstImage.classList.remove('carousel-fourth');
-    $firstImage.classList.add('carousel-third');
-    $fourthRadioButton.classList.remove('active-button-index');
-    $thirdRadioButton.classList.add('active-button-index');
+    handleThirdRadioButton();
   } else if ($firstImage.classList.contains('carousel-third')) {
-    $firstImage.classList.remove('carousel-third');
-    $firstImage.classList.add('carousel-second');
-    $thirdRadioButton.classList.remove('active-button-index');
-    $secondRadioButton.classList.add('active-button-index');
+    handleSecondRadioButton();
   } else if ($firstImage.classList.contains('carousel-second')) {
-    $firstImage.classList.remove('carousel-second');
-    $firstImage.classList.add('carousel-first');
-    $secondRadioButton.classList.remove('active-button-index');
-    $firstRadioButton.classList.add('active-button-index');
+    handleFirstRadioButton();
+  } else {
+    handleFifthRadioButton();
   }
 }
 
@@ -133,7 +109,7 @@ function handleFifthRadioButton(event) {
   $firstRadioButton.classList.remove('active-button-index');
 }
 
-var activeButtonIndex = 0;
+/* var activeButtonIndex = 0;
 
 function timer() {
   setTimeout(timer, 5000);
@@ -141,7 +117,7 @@ function timer() {
   updateActiveButtonIndex();
 }
 
-setTimeout(timer, 5000);
+var timeoutId = setTimeout(timer, 5000);
 
 function updateActiveButtonIndex() {
   if (activeButtonIndex < 4) {
@@ -151,3 +127,4 @@ function updateActiveButtonIndex() {
     handleFirstRadioButton();
   }
 }
+ */
