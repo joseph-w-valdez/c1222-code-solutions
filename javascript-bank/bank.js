@@ -4,16 +4,10 @@ function Bank() {
   this.accounts = [];
 }
 
-function Transaction(type, amount) {
-  this.type = type;
-  this.amount = amount;
-}
-
 Bank.prototype.openAccount = function (holder, balance) {
   if (balance % 1 === 0 && balance > 0) {
     var newAccount = new Account(this.nextAccountNumber, holder);
-    var transaction = new Transaction('deposit', balance);
-    newAccount.transactions.push(transaction);
+    newAccount.deposit(balance);
     this.accounts.push(newAccount);
     this.nextAccountNumber++;
     return newAccount.number;
