@@ -31,7 +31,7 @@ function handleLeftArrowButton(event) {
     handleFifthRadioButton();
   }
 }
-
+var $radioButtons = document.querySelectorAll('.manual-button');
 var $firstRadioButton = document.querySelector('#carousel-first');
 var $secondRadioButton = document.querySelector('#carousel-second');
 var $thirdRadioButton = document.querySelector('#carousel-third');
@@ -51,6 +51,10 @@ function handleRadioButton(event) {
   var classUpdater = event.target.getAttribute('id');
   var classString = 'slide ' + classUpdater;
   $firstImage.className = classString;
+  for (let radioButton = 0; radioButton < $radioButtons.length; radioButton++) {
+    $radioButtons[radioButton].className = 'manual-button';
+  }
+  event.target.classList.add('active-button-index');
   startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
  */
