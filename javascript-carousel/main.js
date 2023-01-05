@@ -4,39 +4,38 @@ var $firstImage = document.querySelector('#first');
 
 $rightArrowButton.addEventListener('click', handleRightArrowButton);
 function handleRightArrowButton(event) {
-  if ($firstImage.classList.contains('carousel-first')) {
-    handleSecondRadioButton();
-  } else if ($firstImage.classList.contains('carousel-second')) {
-    handleThirdRadioButton();
-  } else if ($firstImage.classList.contains('carousel-third')) {
-    handleFourthRadioButton();
-  } else if ($firstImage.classList.contains('carousel-fourth')) {
-    handleFifthRadioButton();
-  } else {
-    handleFirstRadioButton();
+  clearInterval(startingIntervalId);
+
+  var $activeButtonIndex = document.querySelector('[class="manual-button active-button-index"]');
+  classUpdater = $activeButtonIndex.getAttribute('id');
+  var shortenedUpdater = classUpdater.substring(0, classUpdater.length - 1);
+  var index = classUpdater.substring(classUpdater.length - 1);
+  var updatedIndex = index * 1 + 1;
+  classUpdater = shortenedUpdater + updatedIndex;
+  var classString = 'slide ' + classUpdater;
+  $firstImage.className = classString;
+  for (let radioButton = 0; radioButton < $radioButtons.length; radioButton++) {
+    $radioButtons[radioButton].className = 'manual-button';
   }
+
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
+
+  classUpdater = event.target.getAttribute('id');
+
+  event.target.classList.add('active-button-index');
+
 }
 
 $leftArrowButton.addEventListener('click', handleLeftArrowButton);
 function handleLeftArrowButton(event) {
-  if ($firstImage.classList.contains('carousel-fifth')) {
-    handleFourthRadioButton();
-  } else if ($firstImage.classList.contains('carousel-fourth')) {
-    handleThirdRadioButton();
-  } else if ($firstImage.classList.contains('carousel-third')) {
-    handleSecondRadioButton();
-  } else if ($firstImage.classList.contains('carousel-second')) {
-    handleFirstRadioButton();
-  } else {
-    handleFifthRadioButton();
-  }
+
 }
 var $radioButtons = document.querySelectorAll('.manual-button');
-var $firstRadioButton = document.querySelector('#carousel-first');
-var $secondRadioButton = document.querySelector('#carousel-second');
-var $thirdRadioButton = document.querySelector('#carousel-third');
-var $fourthRadioButton = document.querySelector('#carousel-fourth');
-var $fifthRadioButton = document.querySelector('#carousel-fifth');
+var $firstRadioButton = document.querySelector('#carousel-1');
+var $secondRadioButton = document.querySelector('#carousel-2');
+var $thirdRadioButton = document.querySelector('#carousel-3');
+var $fourthRadioButton = document.querySelector('#carousel-4');
+var $fifthRadioButton = document.querySelector('#carousel-5');
 
 $firstRadioButton.addEventListener('click', handleRadioButton);
 $secondRadioButton.addEventListener('click', handleRadioButton);
@@ -48,7 +47,8 @@ var startingIntervalId = setInterval(handleRightArrowButton, 3000);
 
 function handleRadioButton(event) {
   clearInterval(startingIntervalId);
-  var classUpdater = event.target.getAttribute('id');
+  var classUpdater;
+  classUpdater = event.target.getAttribute('id');
   var classString = 'slide ' + classUpdater;
   $firstImage.className = classString;
   for (let radioButton = 0; radioButton < $radioButtons.length; radioButton++) {

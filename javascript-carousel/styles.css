@@ -166,23 +166,23 @@ input {
   transition: 0s;
 }
 
-.carousel-first {
+.carousel-1 {
   margin-left: 0;
 }
 
-.carousel-second {
+.carousel-2 {
   margin-left: -20%;
 }
 
-.carousel-third {
+.carousel-3 {
   margin-left: -40%;
 }
 
-.carousel-fourth {
+.carousel-4 {
   margin-left: -60%;
 }
 
-.carousel-fifth {
+.carousel-5 {
   margin-left: -80%;
 }
 
