@@ -6,7 +6,7 @@ xhr.addEventListener('load', function () {
   console.log('xhr.status value :  ', xhr.status);
   console.log('xhr.response value :  ', xhr.response);
   for (let user = 0; user < xhr.response.length; user++) {
-    var $newLi = document.createElement('Li');
+    var $newLi = document.createElement('li');
     $newLi.textContent = xhr.response[user].name;
     $userList.appendChild($newLi);
   }
