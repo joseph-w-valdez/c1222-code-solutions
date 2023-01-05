@@ -40,6 +40,7 @@ var $fifthRadioButton = document.querySelector('.radio-button-5');
 
 $firstRadioButton.addEventListener('click', handleFirstRadioButton);
 function handleFirstRadioButton(event) {
+  clearInterval(startingIntervalId);
   $firstImage.classList.add('carousel-first');
   $firstImage.classList.remove('carousel-second');
   $firstImage.classList.remove('carousel-third');
@@ -50,11 +51,12 @@ function handleFirstRadioButton(event) {
   $thirdRadioButton.classList.remove('active-button-index');
   $fourthRadioButton.classList.remove('active-button-index');
   $fifthRadioButton.classList.remove('active-button-index');
-
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
 
 $secondRadioButton.addEventListener('click', handleSecondRadioButton);
 function handleSecondRadioButton(event) {
+  clearInterval(startingIntervalId);
   $firstImage.classList.remove('carousel-first');
   $firstImage.classList.add('carousel-second');
   $firstImage.classList.remove('carousel-third');
@@ -65,10 +67,12 @@ function handleSecondRadioButton(event) {
   $thirdRadioButton.classList.remove('active-button-index');
   $fourthRadioButton.classList.remove('active-button-index');
   $fifthRadioButton.classList.remove('active-button-index');
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
 
 $thirdRadioButton.addEventListener('click', handleThirdRadioButton);
 function handleThirdRadioButton(event) {
+  clearInterval(startingIntervalId);
   $firstImage.classList.remove('carousel-first');
   $firstImage.classList.remove('carousel-second');
   $firstImage.classList.add('carousel-third');
@@ -79,10 +83,12 @@ function handleThirdRadioButton(event) {
   $firstRadioButton.classList.remove('active-button-index');
   $fourthRadioButton.classList.remove('active-button-index');
   $fifthRadioButton.classList.remove('active-button-index');
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
 
 $fourthRadioButton.addEventListener('click', handleFourthRadioButton);
 function handleFourthRadioButton(event) {
+  clearInterval(startingIntervalId);
   $firstImage.classList.remove('carousel-first');
   $firstImage.classList.remove('carousel-second');
   $firstImage.classList.remove('carousel-third');
@@ -93,10 +99,12 @@ function handleFourthRadioButton(event) {
   $thirdRadioButton.classList.remove('active-button-index');
   $firstRadioButton.classList.remove('active-button-index');
   $fifthRadioButton.classList.remove('active-button-index');
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
 
 $fifthRadioButton.addEventListener('click', handleFifthRadioButton);
 function handleFifthRadioButton(event) {
+  clearInterval(startingIntervalId);
   $firstImage.classList.remove('carousel-first');
   $firstImage.classList.remove('carousel-second');
   $firstImage.classList.remove('carousel-third');
@@ -107,24 +115,7 @@ function handleFifthRadioButton(event) {
   $thirdRadioButton.classList.remove('active-button-index');
   $fourthRadioButton.classList.remove('active-button-index');
   $firstRadioButton.classList.remove('active-button-index');
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
 
-/* var activeButtonIndex = 0;
-
-function timer() {
-  setTimeout(timer, 5000);
-  activeButtonIndex++;
-  updateActiveButtonIndex();
-}
-
-var timeoutId = setTimeout(timer, 5000);
-
-function updateActiveButtonIndex() {
-  if (activeButtonIndex < 4) {
-    handleRightArrowButton();
-  } else {
-    activeButtonIndex = 0;
-    handleFirstRadioButton();
-  }
-}
- */
+var startingIntervalId = setInterval(handleRightArrowButton, 3000);
