@@ -1,0 +1,198 @@
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container {
+  max-width: 3000px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: rgb(116 204 255);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 50vw;
+  height: 80vh;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.slides {
+  width: 500%;
+  height: 80vh;
+  display: flex;
+}
+
+.slide {
+  width: 20%;
+  transition: 2s;
+}
+
+img {
+  width: 50vw;
+  height: 80vh;
+  object-fit: contain;
+  transition: 2s;
+  background-color: white;
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+}
+
+.manual-button {
+  padding: 10px;
+  background-color: rgb(233 233 233 / 24%);
+  border-radius: 50%;
+  border: 4px solid rgb(116 204 255);
+  cursor: pointer;
+  transition: 0.75s;
+  margin: 0 5px;
+}
+
+label {
+  margin: 0 10px;
+}
+
+label:hover {
+  background-color: rgb(116 204 255);
+}
+
+.active-button-index {
+  background-color: rgb(116 204 255);
+}
+
+input {
+  display: none;
+}
+
+.manual-button:active {
+  transform: translateY(5px);
+}
+
+.button-1:checked ~ .first {
+  margin-left: 0;
+}
+
+.button-2:checked ~ .first {
+  margin-left: -20%;
+}
+
+.button-3:checked ~ .first {
+  margin-left: -40%;
+}
+
+.button-4:checked ~ .first {
+  margin-left: -60%;
+}
+
+.right-arrow {
+  background: rgb(206 206 206 / 78.8%);
+  position: absolute;
+  top: 35vh;
+  right: 30px;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+}
+
+.right-arrow-1 {
+  height: 7px;
+  width: 30px;
+  background-color: rgb(255 255 255 / 82.9%);
+  position: absolute;
+  right: 25px;
+  top: 32px;
+  transform: rotate(45deg);
+  border-radius: 5px;
+}
+
+.right-arrow-2 {
+  height: 7px;
+  width: 30px;
+  background-color: rgb(255 255 255 / 82.9%);
+  position: absolute;
+  right: 25px;
+  bottom: 32px;
+  transform: rotate(-45deg);
+  border-radius: 5px;
+}
+
+.left-arrow-1 {
+  height: 7px;
+  width: 30px;
+  background-color: rgb(255 255 255 / 82.9%);
+  position: absolute;
+  left: 25px;
+  top: 32px;
+  transform: rotate(-45deg);
+  border-radius: 5px;
+}
+
+.left-arrow-2 {
+  height: 7px;
+  width: 30px;
+  background-color: rgb(255 255 255 / 82.9%);
+  position: absolute;
+  left: 25px;
+  bottom: 32px;
+  transform: rotate(45deg);
+  border-radius: 5px;
+}
+
+.left-arrow {
+  background: rgb(206 206 206 / 78.8%);
+  position: absolute;
+  top: 35vh;
+  left: 30px;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+}
+
+.right-arrow:active,
+.left-arrow:active {
+  transform: translateY(5px);
+  transition: 0s;
+}
+
+.carousel-1 {
+  margin-left: 0;
+}
+
+.carousel-2 {
+  margin-left: -20%;
+}
+
+.carousel-3 {
+  margin-left: -40%;
+}
+
+.carousel-4 {
+  margin-left: -60%;
+}
+
+.carousel-5 {
+  margin-left: -80%;
+}
+
+.pokemon-name {
+  background-color: white;
+  padding: 20px 0 0;
+  margin: 0;
+  width: 100%;
+  font-size: 60px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+}
