@@ -1,34 +1,52 @@
-/* var $leftArrowButton = document.querySelector('.left-arrow');
+var $leftArrowButton = document.querySelector('.left-arrow');
 var $rightArrowButton = document.querySelector('.right-arrow');
 var $firstImage = document.querySelector('#first');
+var $allPokemon = document.querySelectorAll('.slide');
+var classUpdater;
 
 $rightArrowButton.addEventListener('click', handleRightArrowButton);
 function handleRightArrowButton(event) {
+  clearInterval(startingIntervalId);
+  var $activeButtonIndex = document.querySelector('[class="manual-button active-button-index"]');
+  classUpdater = $activeButtonIndex.getAttribute('id');
+  var shortenedUpdater = classUpdater.substring(0, classUpdater.length - 1);
+  var index = classUpdater.substring(classUpdater.length - 1);
+  if (index * 1 < $allPokemon.length) {
+    var updatedIndex = index * 1 + 1;
+  } else {
+    updatedIndex = 1;
+  }
+  classUpdater = shortenedUpdater + updatedIndex;
+  var classString = 'slide ' + classUpdater;
+  $firstImage.className = classString;
+  $activeButtonIndex.classList.remove('active-button-index');
+  var $idString = '#' + classUpdater;
+  $activeButtonIndex = document.querySelector($idString);
+  $activeButtonIndex.classList.add('active-button-index');
+  startingIntervalId = setInterval(handleRightArrowButton, 3000);
+}
+
+$leftArrowButton.addEventListener('click', handleLeftArrowButton);
+function handleLeftArrowButton(event) {
   clearInterval(startingIntervalId);
 
   var $activeButtonIndex = document.querySelector('[class="manual-button active-button-index"]');
   classUpdater = $activeButtonIndex.getAttribute('id');
   var shortenedUpdater = classUpdater.substring(0, classUpdater.length - 1);
   var index = classUpdater.substring(classUpdater.length - 1);
-  var updatedIndex = index * 1 + 1;
+  if (index * 1 > 1) {
+    var updatedIndex = index * 1 - 1;
+  } else {
+    updatedIndex = $allPokemon.length;
+  }
   classUpdater = shortenedUpdater + updatedIndex;
   var classString = 'slide ' + classUpdater;
   $firstImage.className = classString;
-  for (let radioButton = 0; radioButton < $radioButtons.length; radioButton++) {
-    $radioButtons[radioButton].className = 'manual-button';
-  }
-
+  $activeButtonIndex.classList.remove('active-button-index');
+  var $idString = '#' + classUpdater;
+  $activeButtonIndex = document.querySelector($idString);
+  $activeButtonIndex.classList.add('active-button-index');
   startingIntervalId = setInterval(handleRightArrowButton, 3000);
-
-  classUpdater = event.target.getAttribute('id');
-
-  event.target.classList.add('active-button-index');
-
-}
-
-$leftArrowButton.addEventListener('click', handleLeftArrowButton);
-function handleLeftArrowButton(event) {
-
 }
 var $radioButtons = document.querySelectorAll('.manual-button');
 var $firstRadioButton = document.querySelector('#carousel-1');
@@ -57,4 +75,3 @@ function handleRadioButton(event) {
   event.target.classList.add('active-button-index');
   startingIntervalId = setInterval(handleRightArrowButton, 3000);
 }
- */
